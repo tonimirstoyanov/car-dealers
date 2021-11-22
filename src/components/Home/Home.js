@@ -15,7 +15,7 @@ const Home = () => {
                 <div className="card">
 
                     <div className="image">
-                        <img src="/img/impreza/329482.jpg" alt="car" />
+                        <img src="https://wallpaperaccess.com/full/329482.jpg" alt="car" />
                     </div>
                     <div className="title">
                         <h1>
@@ -32,7 +32,7 @@ const Home = () => {
 
                     <div className="image">
 
-                        <img src="/img/impreza/329480.jpg" alt="car" />
+                        <img src="https://wallpaperaccess.com/full/329482.jpg" alt="car" />
                     </div>
                     <div className="title">
                         <h1>
@@ -48,7 +48,7 @@ const Home = () => {
                 <div className="card">
                     <div className="image">
                         <img
-                            src="/img/impreza/1826230.jpg" alt="car" />
+                            src="https://wallpaperaccess.com/full/329482.jpg" alt="car" />
                     </div>
                     <div className="title">
                         <h1>

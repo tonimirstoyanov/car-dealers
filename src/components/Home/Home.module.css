@@ -1,0 +1,140 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: url(./img/1826230.jpg) no-repeat center 0px;
+  background-size: cover;
+
+
+
+  background-position: center 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  -ms-background-size: cover;
+
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.main-card {
+  margin: 2%;
+  text-align: center;
+}
+
+.card {
+  width: 18%;
+  display: inline-block;
+  box-shadow: 2px 2px 20px black;
+  box-sizing: border-box;
+  border-radius: 15px;
+  margin: 2%;
+  background-color: #ffff;
+  position: relative;
+  top: 270px;
+  background: rgba(255, 254, 254, 0.8);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, .5);
+  border-radius: 10px;
+  padding-bottom: 10px;
+  bottom: 10px;
+}
+
+.image img {
+  width: 100%;
+  box-sizing: border-box;
+  height: 250px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.title {
+
+  text-align: center;
+  padding: 5px;
+
+}
+
+h1 {
+  font-size: 25px;
+}
+
+.des {
+  padding: 5px;
+  text-align: center;
+
+  padding-top: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.des p {
+  padding: 10px;
+  font-size: 16px;
+}
+
+.last-offers {
+  font-family: sans-serif;
+  font-size: 40px;
+  color: #ffff;
+  position: relative;
+  top: 290px;
+}
+
+.days {
+  position: relative;
+  top: 40px;
+  left: -145px;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 0.2rem 0.8rem;
+  border-radius: 2rem;
+  display: inline-block;
+  margin-right: 0.5rem;
+  font-size: 15px;
+}
+
+.price {
+  position: relative;
+  top: 40px;
+  left: -150px;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 0.2rem 0.8rem;
+  border-radius: 2rem;
+  display: inline-block;
+  margin-right: 0.5rem;
+  font-size: 15px;
+}
+
+
+
+.home-photo {
+  position: relative;
+  height: 50%;
+  width: 50%;
+}
+
+.main-text p {
+  text-align: center;
+  position: relative;
+  top: 110px;
+  font-family: sans-serif;
+  font-size: 50px;
+  color: #ffff;
+  text-shadow: 2px 2px #ffff;
+}
+
+.main-text button {
+  position: relative;
+  align-items: center;
+  top: 150px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+main-text{
+  
+}

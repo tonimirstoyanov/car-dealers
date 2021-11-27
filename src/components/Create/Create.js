@@ -1,26 +1,26 @@
-import './Create.css'
+import styles from './Create.module.css'
 
 const Create = () => {
 
     return (
-        <section className="create-box">
+        <section className={styles['create-box']}>
             <h2>Create Ad</h2>
             <form id="create">
-                <div className="create-field">
+                <div className={styles['create-field']}>
                     <input type="text" name="brand" id="brand" required="" />
                     <label>Brand</label>
                 </div>
-                <div className="create-field">
+                <div className={styles['create-field']}>
                     <input type="number" name="price" id="price " required="" />
                     <label>Price</label>
                 </div>
-                <div className="create-field">
+                <div className={styles['create-field']}>
                     <input type="number" name="year" id="year" required="" />
                     <label>Year</label>
                 </div>
-                <div className="create-field">
-                    <label htmlFor="category" id="category-label">Category</label>
-                    <select name="category" id="category">
+                <div className={styles['create-field']}>
+                    <label htmlFor="category" className={styles['category-label']}>Category</label>
+                    <select name="category" className={styles.category}>
                         <option id="cabriolet">Cabriolet</option>
                         <option id="small-car">Small Car</option>
                         <option id="suv">SUV/Off-road</option>
@@ -30,17 +30,17 @@ const Create = () => {
                         <option id="van">Van</option>
                     </select>
                 </div>
-                <div className="create-field">
+                <div className={styles['create-field']}>
                     <input type="number" name="mileage" id="mileage" required="" />
                     <label>Mileage</label>
                 </div>
-                <div className="create-field">
+                <div className={styles['create-field']}>
                     <input type="number" name="horsePower" id="horse-power" required="" />
                     <label>Horse Power</label>
                 </div>
-                <div className="create-field">
-                    <label htmlFor="fuel" id="fuel-label">Fuel</label>
-                    <select name="fuel" id="fuel">
+                <div className={styles['create-field']}>
+                    <label htmlFor="fuel" className={styles['fuel-label']}>Fuel</label>
+                    <select name="fuel" className={styles.fuel}>
                         <option id="petrol">Petrol</option>
                         <option id="diesel">Diesel</option>
                         <option id="electric">Electric</option>
@@ -49,39 +49,39 @@ const Create = () => {
                         <option id="hydrogen">Hydrogen</option>
                     </select>
                 </div>
-                <div className="create-field">
-                    <label htmlFor="gearbox" id="gearbox-label">Gearbox</label>
-                    <select name="gearbox" id="gearbox">
+                <div className={styles['create-field']}>
+                    <label htmlFor="gearbox" className={styles['gearbox-label']}>Gearbox</label>
+                    <select name="gearbox" className={styles.gearbox}>
                         <option id="manual">Manual</option>
                         <option id="semi-automatic">Semi-automatic</option>
                         <option id="automatic">Automatic</option>
                     </select>
                 </div>
-                <div className="create-field">
+                <div className={styles['create-field']}>
                     <input type="text" name="color" id="color" required="" />
                     <label>Color</label>
                 </div>
-                <div className="create-field">
+                <div className={styles['create-field']}>
                     <input type="text" name="extras" id="extras" required="" />
                     <label>Extras</label>
                 </div>
-                <div className="create-field">
+                <div className={styles['create-field']}>
                     <input type="text" name="description" id="description" required="" />
                     <label>Description</label>
                 </div>
-                <div className="create-field">
+                <div className={styles['create-field']}>
                     <input type="text" name="location" id="location" required="" />
                     <label>Location</label>
                 </div>
-                <div className="create-field">
+                <div className={styles['create-field']}>
                     <input type="number" name="contactNumber" id="contact-number" required="" />
                     <label>Contact Number</label>
                 </div>
-                <div className="create-field">
+                <div className={styles['create-field']}>
                     <input type="text" name="ImageUrl" id="imageUrl" required="" />
                     <label>Image</label>
                 </div>
-                <button className="btn submit" type="submit">Submit</button>
+                <button className={styles['btn-submit']} type="submit">Submit</button>
             </form>
         </section>
     );

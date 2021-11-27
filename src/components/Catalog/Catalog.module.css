@@ -108,9 +108,10 @@ body {
 
 
 .main-card {
-
+    position: absolute;
     margin: 2%;
     text-align: center;
+    top: 250px;
 }
 
 .card {
@@ -184,17 +185,4 @@ h1 {
     display: inline-block;
     margin-right: 0.5rem;
     font-size: 15px;
-}
-
-footer {
-    position: static;
-    opacity: 0.7;
-    bottom: 0;
-    height: 40px;
-    font-size: 20px;
-    width: 100%;
-    color: #ffff;
-    text-align: center;
-    box-sizing: border-box;
-    background: #5a4b63;
 }

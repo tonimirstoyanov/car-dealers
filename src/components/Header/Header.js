@@ -1,21 +1,23 @@
 import './Header.css'
 
+import { Link } from 'react-router-dom';
+
 const Header = () => {
 
     return (<header>
-        <a href="#home" className="logo"><span>Cars</span> Dealers</a>
+        <Link to="/" className="logo"><span>Cars</span> Dealers</Link>
         <nav>
             <ul className="menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#catalog">Car Catalog</a></li>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/catalog">Car Catalog</Link></li>
                 {/* <!-- Logged users --> */}
-                <li><a href="#create">Create ad</a></li>
+                <li><Link to="/create">Create ad</Link></li>
             </ul>
         </nav>
         {/* <!-- Guest users --> */}
-        <a className="button-login" href="#login"><button>Login</button></a>
-        <a className="button-register" href="#register"><button>Register</button></a>
-        <a className="button-logout" href="#logout"><button>Logout</button></a>
+        <Link className="button-login" to="/login"><button>Login</button></Link>
+        <Link className="button-register" to="/register"><button>Register</button></Link>
+        <Link className="button-logout" to="/logout"><button>Logout</button></Link>
     </header>);
 }
 

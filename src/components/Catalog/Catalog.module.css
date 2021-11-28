@@ -108,10 +108,9 @@ body {
 
 
 .main-card {
-    position: absolute;
+    position: relative;
     margin: 2%;
     text-align: center;
-    top: 250px;
 }
 
 .card {
@@ -185,4 +184,9 @@ h1 {
     display: inline-block;
     margin-right: 0.5rem;
     font-size: 15px;
+}
+
+.no-cars{
+    color: #fff;
+    text-align: center;
 }

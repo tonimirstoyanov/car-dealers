@@ -1,7 +1,21 @@
 import styles from './Catalog.module.css'
 
+import { useEffect, useState } from 'react';
+
+import CatalogCard from './CatalogCard.js';
 
 const Catalog = () => {
+
+    const [cars, setCars] = useState([])
+
+    useEffect(() => {
+        fetch('http://localhost:3030/car/catalog')
+            .then(respone => respone.json())
+            .then(cars => {
+                setCars(cars)
+            })
+    }, [])
+
 
     return (
         <>
@@ -18,109 +32,10 @@ const Catalog = () => {
             <div className={styles['main-card']}>
 
 
-                <div className={styles.card}>
-
-                    <div className={styles.image}>
-                        <img src="https://wallpaperaccess.com/full/329482.jpg" alt="cars" />
-                    </div>
-                    <div className={styles.title}>
-                        <h1>
-                            Subaru Impreza</h1>
-                    </div>
-                    <div className={styles.des}>
-                        <p>Year:2007, Fuel:Petrol, Mileage:222222 km</p>
-                        <p>Price: 20000 </p>
-                        <p>City: Stara Zagora</p>
-                        <button>Read More...</button>
-                    </div>
-                </div>
-
-
-                <div className={styles.card}>
-
-                    <div className={styles.image}>
-                        <img src="https://wallpaperaccess.com/full/329482.jpg" alt="cars" />
-                    </div>
-                    <div className={styles.title}>
-                        <h1>
-                            Subaru Impreza</h1>
-                    </div>
-                    <div className={styles.des}>
-                        <p>Year:2007, Fuel:Petrol, Mileage:222222 km</p>
-                        <p>Price: 20000 </p>
-                        <p>City: Stara Zagora</p>
-                        <button>Read More...</button>
-                    </div>
-                </div>
-
-
-                <div className={styles.card}>
-
-                    <div className={styles.image}>
-                        <img src="https://wallpaperaccess.com/full/329482.jpg" alt="cars" />
-                    </div>
-                    <div className={styles.title}>
-                        <h1>
-                            Subaru Impreza</h1>
-                    </div>
-                    <div className={styles.des}>
-                        <p>Year:2007, Fuel:Petrol, Mileage:222222 km</p>
-                        <p>Price: 20000 </p>
-                        <p>City: Stara Zagora</p>
-                        <button>Read More...</button>
-                    </div>
-                </div>
-
-                <div className={styles.card}>
-
-                    <div className={styles.image}>
-                        <img src="https://wallpaperaccess.com/full/329482.jpg" alt="cars" />
-                    </div>
-                    <div className={styles.title}>
-                        <h1>
-                            Subaru Impreza</h1>
-                    </div>
-                    <div className={styles.des}>
-                        <p>Year:2007, Fuel:Petrol, Mileage:222222 km</p>
-                        <p>Price: 20000 </p>
-                        <p>City: Stara Zagora</p>
-                        <button>Read More...</button>
-                    </div>
-                </div>
-
-                <div className={styles.card}>
-
-                    <div className={styles.image}>
-                        <img src="https://wallpaperaccess.com/full/329482.jpg" alt="cars" />
-                    </div>
-                    <div className={styles.title}>
-                        <h1>
-                            Subaru Impreza</h1>
-                    </div>
-                    <div className={styles.des}>
-                        <p>Year:2007, Fuel:Petrol, Mileage:222222 km</p>
-                        <p>Price: 20000 </p>
-                        <p>City: Stara Zagora</p>
-                        <button>Read More...</button>
-                    </div>
-                </div>
-
-                <div className={styles.card}>
-
-                    <div className={styles.image}>
-                        <img src="https://wallpaperaccess.com/full/329482.jpg" alt="cars" />
-                    </div>
-                    <div className={styles.title}>
-                        <h1>
-                            Subaru Impreza</h1>
-                    </div>
-                    <div className={styles.des}>
-                        <p>Year:2007, Fuel:Petrol, Mileage:222222 km</p>
-                        <p>Price: 20000 </p>
-                        <p>City: Stara Zagora</p>
-                        <button>Read More...</button>
-                    </div>
-                </div>
+                {cars.length > 0
+                    ? cars.map(x => <CatalogCard key={x._id} car={x} />)
+                    : <h2 className={styles['no-cars']}>No cars yet</h2>
+                }
 
             </div>
 

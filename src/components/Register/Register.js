@@ -19,7 +19,7 @@ const Register = () => {
                     <label>Password</label>
                 </div>
                 <div className={styles['register-field']}>
-                    <input type="password" name="rePassword" id="rePassword" required="" />
+                    <input type="password" name="repeatPassword" id="repeatPassword" required="" />
                     <label>Repeat Password</label>
                 </div>
                 <button type="submit">Submit</button>

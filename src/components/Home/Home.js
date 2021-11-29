@@ -1,6 +1,20 @@
+import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+
 import styles from './Home.module.css'
+import HomeCard from './HomeCard.js';
+import * as carService from '../../services/carService.js';
 
 const Home = () => {
+
+    const [cars, setCars] = useState([])
+
+    useEffect(() => {
+        carService.lastAdded()
+            .then(car => {
+                setCars(car)
+            })
+    }, [])
 
     return (
         <>
@@ -8,58 +22,13 @@ const Home = () => {
 
                 <div class={styles['main-text']}>
                     <p>Welcome,</p>
-                    <button>View Catalog</button>
+                    <Link className={styles['button-view-catalog']} to="/car/catalog"><button>View Catalog</button></Link>
                 </div>
                 <div className={styles['main-card']}>
 
                     <div className={styles['last-offers']}>Last added offers</div>
 
-                    <div className={styles.card}>
-
-                        <div className={styles.image}>
-                            <img src="https://wallpaperaccess.com/full/329482.jpg" alt="car" />
-                        </div>
-                        <div className={styles.title}>
-                            <h1>
-                                Subaru Impreza</h1>
-                        </div>
-                        <div className={styles.des}>
-                            <p>Year:2006</p>
-                            <button>Read More...</button>
-                        </div>
-                    </div>
-
-
-                    <div className={styles.card}>
-
-                        <div className={styles.image}>
-                            <img src="https://wallpaperaccess.com/full/329482.jpg" alt="car" />
-                        </div>
-                        <div className={styles.title}>
-                            <h1>
-                                Subaru Impreza</h1>
-                        </div>
-                        <div className={styles.des}>
-                            <p>Year:2006</p>
-                            <button>Read More...</button>
-                        </div>
-                    </div>
-
-
-                    <div className={styles.card}>
-
-                        <div className={styles.image}>
-                            <img src="https://wallpaperaccess.com/full/329482.jpg" alt="car" />
-                        </div>
-                        <div className={styles.title}>
-                            <h1>
-                                Subaru Impreza</h1>
-                        </div>
-                        <div className={styles.des}>
-                            <p>Year:2006</p>
-                            <button>Read More...</button>
-                        </div>
-                    </div>
+                    {cars.map(x => <HomeCard key={x._id} car={x} />)}
 
                 </div>
 

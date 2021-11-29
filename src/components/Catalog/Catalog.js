@@ -1,16 +1,16 @@
-import styles from './Catalog.module.css'
-
 import { useEffect, useState } from 'react';
 
+import styles from './Catalog.module.css'
 import CatalogCard from './CatalogCard.js';
+import * as carService from '../../services/carService.js';
+
 
 const Catalog = () => {
 
     const [cars, setCars] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:3030/car/catalog')
-            .then(respone => respone.json())
+        carService.getAll()
             .then(cars => {
                 setCars(cars)
             })

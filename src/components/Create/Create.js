@@ -21,13 +21,13 @@ const Create = () => {
                 <div className={styles['create-field']}>
                     <label htmlFor="category" className={styles['category-label']}>Category</label>
                     <select name="category" className={styles.category}>
-                        <option id="cabriolet">Cabriolet</option>
-                        <option id="small-car">Small Car</option>
-                        <option id="suv">SUV/Off-road</option>
-                        <option id="estate">Estate Car</option>
-                        <option id="saloon">Saloon</option>
-                        <option id="coupe">Sports Car/Coupe</option>
-                        <option id="van">Van</option>
+                        <option value="cabriolet">Cabriolet</option>
+                        <option value="small-car">Small Car</option>
+                        <option value="suv">SUV/Off-road</option>
+                        <option value="estate">Estate Car</option>
+                        <option value="saloon">Saloon</option>
+                        <option value="coupe">Sports Car/Coupe</option>
+                        <option value="van">Van</option>
                     </select>
                 </div>
                 <div className={styles['create-field']}>
@@ -41,20 +41,20 @@ const Create = () => {
                 <div className={styles['create-field']}>
                     <label htmlFor="fuel" className={styles['fuel-label']}>Fuel</label>
                     <select name="fuel" className={styles.fuel}>
-                        <option id="petrol">Petrol</option>
-                        <option id="diesel">Diesel</option>
-                        <option id="electric">Electric</option>
-                        <option id="lpg">LPG</option>
-                        <option id="hybrid">Hybrid</option>
-                        <option id="hydrogen">Hydrogen</option>
+                        <option value="petrol">Petrol</option>
+                        <option value="diesel">Diesel</option>
+                        <option value="electric">Electric</option>
+                        <option value="lpg">LPG</option>
+                        <option value="hybrid">Hybrid</option>
+                        <option value="hydrogen">Hydrogen</option>
                     </select>
                 </div>
                 <div className={styles['create-field']}>
                     <label htmlFor="gearbox" className={styles['gearbox-label']}>Gearbox</label>
                     <select name="gearbox" className={styles.gearbox}>
-                        <option id="manual">Manual</option>
-                        <option id="semi-automatic">Semi-automatic</option>
-                        <option id="automatic">Automatic</option>
+                        <option value="manual">Manual</option>
+                        <option value="semi-automatic">Semi-automatic</option>
+                        <option value="automatic">Automatic</option>
                     </select>
                 </div>
                 <div className={styles['create-field']}>

@@ -1,7 +1,8 @@
 import styles from './Home.module.css'
+import { Link } from 'react-router-dom';
 
 const HomeCard = ({car}) => {
-
+    	
     return (
         <div className={styles.card}>
 
@@ -14,7 +15,7 @@ const HomeCard = ({car}) => {
             </div>
             <div className={styles.des}>
                 <p>Year:{car.year}, Price: {car.price} lv.</p>
-                <button>Read More...</button>
+                <Link className={styles['button-read-more']} to={`/car/${car._id}/details`}><button>Read More...</button></Link>
             </div>
         </div>
     );

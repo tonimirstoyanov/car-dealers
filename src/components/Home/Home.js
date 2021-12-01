@@ -20,7 +20,7 @@ const Home = () => {
         <>
             <div className={styles.main}>
 
-                <div class={styles['main-text']}>
+                <div className={styles['main-text']}>
                     <p>Welcome,</p>
                     <Link className={styles['button-view-catalog']} to="/car/catalog"><button>View Catalog</button></Link>
                 </div>

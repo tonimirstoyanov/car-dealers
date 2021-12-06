@@ -1,69 +1,77 @@
 li, a, button {
-    font-family: sans-serif;
-    font-weight: 500;
-    font-size: 17px;
-    color: white;
-    text-decoration: none;
-  }
-  
-  header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    z-index: 1000;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 7%;
-    background: rgb(90, 75, 99, 0.8);
-  }
-  
-  .logo {
-    cursor: pointer;
-    margin-right: auto;
-    font-size: 17px;
-  }
-  
-  .menu {
-    list-style: none;
-  }
-  
-  .menu li {
-    display: inline-block;
-    padding: 0px 20px;
-  }
-  
-  .menu li a {
-    transition: all 0.3s ease 0s;
-  }
-  
-  .menu li a:hover {
-    color: #0088a9
-  }
-  
-  button {
-    padding: 6px 25px;
-    background-color: rgba(0, 136, 169, 1);
-    border: none;
-    border-radius: 40px;
-    cursor: pointer;
-    transition: all 0.3s ease 0s;
-    margin: 5px;
-  }
-  
-  button:hover {
-    background-color: rgba(0, 136, 169, 0.8);
-  }
-  
-  header .logo {
-    font-size: 1.8rem;
-    font-weight: bolder;
-    color: #ffff;
-    text-transform: uppercase;
-  }
-  
-  header .logo span {
-    color: #0088a9;
-  
-  }
+  font-family: sans-serif;
+  font-weight: 500;
+  font-size: 17px;
+  color: white;
+  text-decoration: none;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  z-index: 1000;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 7%;
+  background: rgb(90, 75, 99, 0.8);
+}
+
+.logo {
+  cursor: pointer;
+  margin-right: auto;
+  font-size: 17px;
+}
+
+.menu {
+  list-style: none;
+}
+
+.menu li {
+  display: inline-block;
+  padding: 0px 20px;
+}
+
+.menu li a {
+  transition: all 0.3s ease 0s;
+}
+
+.menu li a:hover {
+  color: #0088a9
+}
+
+button {
+  padding: 6px 25px;
+  background-color: rgba(0, 136, 169, 1);
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+  margin: 5px;
+}
+
+button:hover {
+  background-color: rgba(0, 136, 169, 0.8);
+}
+
+header .logo {
+  font-size: 1.8rem;
+  font-weight: bolder;
+  color: #ffff;
+  text-transform: uppercase;
+}
+
+header .logo span {
+  color: #0088a9;
+
+}
+
+.fullName {
+  font-family: sans-serif;
+  font-weight: 500;
+  font-size: 17px;
+  color: white;
+  text-decoration: none;
+}

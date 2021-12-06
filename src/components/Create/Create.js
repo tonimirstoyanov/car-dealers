@@ -1,11 +1,41 @@
 import styles from './Create.module.css'
+import * as carService from '../../services/carService.js'
+import { useContext } from 'react'
+import AuthContext from '../../context/authContext.js'
+import { useHistory } from 'react-router'
 
 const Create = () => {
+    const { user } = useContext(AuthContext)
+    let history = useHistory()
+    const createSubmitHandler = (e) => {
+
+        e.preventDefault()
+
+        let formData = new FormData(e.currentTarget)
+
+        let { brand, price, year, category, mileage, horsePower, fuel, gearbox, color, extras, description, location, contactNumber, imageUrl } = Object.fromEntries(formData)
+
+        let data = {
+            brand, price, year, category, mileage, horsePower, fuel,
+            gearbox, color, extras, description, location, contactNumber, imageUrl
+        };
+        let accessToken = user.accessToken;
+
+        carService.create(data, accessToken)
+            .then(result => {
+                    console.log(result)
+
+                    history.push('/car/catalog')
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
 
     return (
         <section className={styles['create-box']}>
             <h2>Create Ad</h2>
-            <form id="create">
+            <form id="create" method="POST" onSubmit={createSubmitHandler}>
                 <div className={styles['create-field']}>
                     <input type="text" name="brand" id="brand" required="" />
                     <label>Brand</label>
@@ -23,10 +53,10 @@ const Create = () => {
                     <select name="category" className={styles.category}>
                         <option value="cabriolet">Cabriolet</option>
                         <option value="small-car">Small Car</option>
-                        <option value="suv">SUV/Off-road</option>
+                        <option value="suv/off-road">SUV/Off-road</option>
                         <option value="estate">Estate Car</option>
                         <option value="saloon">Saloon</option>
-                        <option value="coupe">Sports Car/Coupe</option>
+                        <option value="sports car/coupe">Sports Car/Coupe</option>
                         <option value="van">Van</option>
                     </select>
                 </div>
@@ -78,7 +108,7 @@ const Create = () => {
                     <label>Contact Number</label>
                 </div>
                 <div className={styles['create-field']}>
-                    <input type="text" name="ImageUrl" id="imageUrl" required="" />
+                    <input type="text" name="imageUrl" id="imageUrl" required="" />
                     <label>Image</label>
                 </div>
                 <button className={styles['btn-submit']} type="submit">Submit</button>

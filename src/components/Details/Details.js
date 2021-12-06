@@ -12,7 +12,7 @@ const Details = ({ match }) => {
             .then(result => {
                 setCar(result)
             })
-    },[])
+    },[match.params.carId])
 
     return (
         <section className={styles['details-box']}>

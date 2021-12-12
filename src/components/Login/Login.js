@@ -4,11 +4,11 @@ import { useHistory } from 'react-router';
 import { useContext } from 'react';
 
 import * as authService from '../../services/authService.js'
-import authContext from '../../context/authContext.js'
+import { AuthContext } from '../../context/authContext.js'
 
 const Login = () => {
 
-    const { login } = useContext(authContext)
+    const { login } = useContext(AuthContext)
     let history = useHistory()
     const loginSubmitHandler = (e) => {
 
@@ -20,7 +20,6 @@ const Login = () => {
 
         authService.login(email, password)
             .then(result => {
-                console.log(result)
                 login(result)
 
                 history.push('/')
@@ -30,6 +29,10 @@ const Login = () => {
             })
     }
 
+    const navigateToRegister = (e) =>{
+        e.preventDefault()
+        history.push('/register')
+    }
     return (
         <section className={styles['login-box']}>
             <form id="login" method="POST" onSubmit={loginSubmitHandler}>
@@ -44,7 +47,7 @@ const Login = () => {
                 </div>
                 <button type="submit">Submit</button>
                 <div className={styles['sing-in']}>
-                    <p className={styles.acc}>Don't have an account? <a href="#">Sing up</a></p>
+                    <p className={styles.acc}>Don't have an account? <a onClick={navigateToRegister}>Sing up</a></p>
                 </div>
             </form>
         </section>

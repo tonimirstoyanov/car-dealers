@@ -19,12 +19,17 @@ const Register = () => {
 
                 history.push('/login')
             })
-            .catch(err =>{
+            .catch(err => {
                 console.log(err)
             })
 
     }
 
+    const navigateToLogin = (e) => {
+        e.preventDefault()
+
+        history.push('/login')
+    }
     return (
         <section className={styles['register-box']}>
             <h2>Register</h2>
@@ -47,7 +52,7 @@ const Register = () => {
                 </div>
                 <button type="submit">Submit</button>
                 <div className={styles['sing-in']}>
-                    <p className={styles.acc}>Already have an account?<a href="#">Sing in</a></p>
+                    <p className={styles.acc}>Already have an account?<a onClick={navigateToLogin}>Sing in</a></p>
                 </div>
             </form>
         </section>

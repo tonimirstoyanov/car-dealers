@@ -1,7 +1,7 @@
 import styles from './Create.module.css'
 import * as carService from '../../services/carService.js'
 import { useContext } from 'react'
-import AuthContext from '../../context/authContext.js'
+import {AuthContext} from '../../context/authContext.js'
 import { useHistory } from 'react-router'
 
 const Create = () => {

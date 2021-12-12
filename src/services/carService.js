@@ -15,7 +15,6 @@ export const getOne = (id) => {
 export const create = async (data, token) => {
     let result = await fetch('http://localhost:3030/car/create', {
         method: 'POST',
-        mode: "cors",
         headers: {
             'Content-Type': 'application/json',
             'auth_token': token
@@ -24,6 +23,23 @@ export const create = async (data, token) => {
     })
     let jsonResult = await result.json();
 
+    if (result.ok) {
+        return jsonResult
+    } else {
+        throw jsonResult.message
+    }
+}
+
+
+export const deleteOne = async (carId, token) => {
+    let result = await fetch(`http://localhost:3030/car/${carId}/delete`, {
+        method: 'DELETE',
+        headers: {
+            'auth_token': token
+        }
+    })
+    let jsonResult = await result.json();
+    
     if (result.ok) {
         return jsonResult
     } else {

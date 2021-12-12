@@ -13,11 +13,25 @@ export const register = (fullName, email, password, repeatPassword) => {
 export const login = async (email, password) => {
     let result = await fetch('http://localhost:3030/user/login', {
         method: 'POST',
-        mode: "cors",
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({ email, password })
+    })
+    let jsonResult = await result.json();
+    
+    if (result.ok) {
+        return jsonResult
+    } else {
+        throw jsonResult.message
+    }
+}
+
+export const logout = async (token) => {
+    let result = await fetch('http://localhost:3030/user/logout', {
+        headers: {
+            'auth_token': token
+        }
     })
     let jsonResult = await result.json();
 
@@ -26,4 +40,5 @@ export const login = async (email, password) => {
     } else {
         throw jsonResult.message
     }
+
 }

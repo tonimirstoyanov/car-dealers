@@ -1,18 +1,51 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext, } from 'react';
+import { useHistory } from 'react-router';
+
 import styles from './Details.module.css';
 
 import * as carService from '../../services/carService.js'
+import { AuthContext } from '../../context/authContext.js';
 
 const Details = ({ match }) => {
+
+    let history = useHistory()
     // console.log(match.params.carId)
+    let carId = match.params.carId;
     const [car, setCar] = useState({})
+    let { user } = useContext(AuthContext)
+
 
     useEffect(() => {
-        carService.getOne(match.params.carId)
+        carService.getOne(carId)
             .then(result => {
                 setCar(result)
             })
-    },[match.params.carId])
+    }, [carId])
+
+    const deleteHandler = (e) => {
+        e.preventDefault()
+
+        carService.deleteOne(carId, user.accessToken)
+            .then(res => {
+                console.log(res)
+
+                history.push('/')
+            })
+    }
+
+    const ownerButtons = (
+        <>
+            <a href={`/car/${match.params.carId}/edit`} className={styles['edit-btn']}><button>Edit</button></a>
+            <a href="#" className={styles['del-btn']} onClick={deleteHandler}><button>Delete</button></a>
+        </>
+    );
+
+    const userButtons = (
+        <>
+            <a className={styles.like}><button>Like</button></a>
+            <a className={styles.dislike}><button>Dislike</button></a>
+        </>
+    )
 
     return (
         <section className={styles['details-box']}>
@@ -45,12 +78,18 @@ const Details = ({ match }) => {
                 <img src={car.imageUrl} alt="" />
             </div>
             <div className={styles['social-btn']}>
-                <a href="#" className={styles['edit-btn']}><button>Edit</button></a>
-                <a href="#" className={styles['del-btn']}><button>Delete</button></a>
-                <a className={styles.like}><button>Like 0</button></a>
-                <a className={styles.dislike}><button>Dislike 0</button></a>
-                <p className={styles['thanks-for-vote']}>Thanks For Voting!</p>
+
+                {user.userId && (user.userId == car.creator
+                    ? ownerButtons
+                    : userButtons)
+                }
+
+                <div>
+                    <p className={styles.likeCount}>Like: 0</p>
+                    <p className={styles.dislikeCount} >Dislike: 0</p>
+                </div>
             </div>
+
         </section>
     )
 }

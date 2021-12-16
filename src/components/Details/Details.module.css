@@ -143,10 +143,33 @@
     justify-content: center;
     gap: 15px;
 }
+
 .likeCount {
     color: rgb(11, 121, 16);
 }
 
-.dislikeCount{
+.dislikeCount {
     color: rgb(221, 11, 11);
+}
+
+.disabledLike button {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: rgb(73, 133, 76);
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.disabledDislike button {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: rgb(232, 100, 100);
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
 }

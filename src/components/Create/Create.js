@@ -3,6 +3,7 @@ import * as carService from '../../services/carService.js'
 import { useContext } from 'react'
 import {AuthContext} from '../../context/authContext.js'
 import { useHistory } from 'react-router'
+import { isAuthenticated } from '../../hoc/isAuth.js'
 
 const Create = () => {
     const { user } = useContext(AuthContext)
@@ -117,4 +118,4 @@ const Create = () => {
     );
 }
 
-export default Create
+export default isAuthenticated(Create)

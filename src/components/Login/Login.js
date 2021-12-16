@@ -2,10 +2,11 @@ import styles from './Login.module.css';
 
 import { useHistory } from 'react-router';
 import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 
 import * as authService from '../../services/authService.js'
 import { AuthContext } from '../../context/authContext.js'
-
+import { isntGuest } from '../../hoc/isntGuest.js';
 const Login = () => {
 
     const { login } = useContext(AuthContext)
@@ -29,10 +30,6 @@ const Login = () => {
             })
     }
 
-    const navigateToRegister = (e) =>{
-        e.preventDefault()
-        history.push('/register')
-    }
     return (
         <section className={styles['login-box']}>
             <form id="login" method="POST" onSubmit={loginSubmitHandler}>
@@ -47,10 +44,10 @@ const Login = () => {
                 </div>
                 <button type="submit">Submit</button>
                 <div className={styles['sing-in']}>
-                    <p className={styles.acc}>Don't have an account? <a onClick={navigateToRegister}>Sing up</a></p>
+                    <p className={styles.acc}>Don't have an account? <Link to={'/register'}>Sing up</Link></p>
                 </div>
             </form>
         </section>
     )
 }
-export default Login;
+export default isntGuest(Login);

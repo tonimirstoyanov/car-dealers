@@ -19,7 +19,7 @@ export const login = async (email, password) => {
         body: JSON.stringify({ email, password })
     })
     let jsonResult = await result.json();
-    
+
     if (result.ok) {
         return jsonResult
     } else {

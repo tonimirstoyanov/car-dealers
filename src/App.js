@@ -1,5 +1,6 @@
 import { Route, Switch } from 'react-router-dom'
 
+
 import Header from './components/Header/Header.js';
 import Home from './components/Home/Home.js';
 import Catalog from './components/Catalog/Catalog.js';

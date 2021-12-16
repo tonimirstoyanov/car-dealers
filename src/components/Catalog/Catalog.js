@@ -8,7 +8,8 @@ import * as carService from '../../services/carService.js';
 const Catalog = () => {
 
     const [cars, setCars] = useState([])
-
+    const [search, setSearch] = useState('')
+    const [filteredCars, setFilteredCars] = useState([]);
     useEffect(() => {
         carService.getAll()
             .then(cars => {
@@ -16,6 +17,13 @@ const Catalog = () => {
             })
     }, [])
 
+    useEffect(() => {
+        setFilteredCars(
+          cars.filter((car) =>
+            car.brand.toLowerCase().includes(search.toLowerCase())
+          )
+        );
+      }, [search, cars]);
 
     return (
         <>
@@ -23,7 +31,7 @@ const Catalog = () => {
 
             <div className={styles['search-box']}>
                 <i className={styles['fa-search']} aria-hidden="true"></i>
-                <input type="text" name="" placeholder="Search by brand" />
+                <input type="text" name="" placeholder="Search by brand" onChange={(e) => setSearch(e.target.value)} />
             </div>
 
             <h2 className={styles['destination-catalog']}>Cars Catalog</h2>
@@ -32,8 +40,8 @@ const Catalog = () => {
             <div className={styles['main-card']}>
 
 
-                {cars.length > 0
-                    ? cars.map(x => <CatalogCard key={x._id} car={x} />)
+                {filteredCars.length > 0
+                    ? filteredCars.map(x => <CatalogCard key={x._id} car={x} />)
                     : <h2 className={styles['no-cars']}>No cars yet</h2>
                 }
 

@@ -1,4 +1,4 @@
-import { createContext } from 'react';
+import { createContext, useState } from 'react';
 import useLocalStorage from '../hooks/useLocalStorage.js';
 
 
@@ -8,7 +8,7 @@ export const AuthContext = createContext()
 
 export const AuthProvider = ({ children }) => {
 
-
+    const [isOwner, setIsOwner] = useState(false)
     const [user, setUser] = useLocalStorage('user', {
         userId: '',
         fullName: '',
@@ -25,7 +25,7 @@ export const AuthProvider = ({ children }) => {
     }
 
     return (
-        <AuthContext.Provider value={{ user, login, logout }}>
+        <AuthContext.Provider value={{ user, login, logout, isAuth: Boolean(user.email), isOwner, setIsOwner }}>
             {children}
         </AuthContext.Provider>
     )

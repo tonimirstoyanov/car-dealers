@@ -1,6 +1,8 @@
 import styles from './Register.module.css'
 import * as authService from '../../services/authService.js'
 import { useHistory } from 'react-router'
+import { Link } from 'react-router-dom'
+import { isntGuest } from '../../hoc/isntGuest.js'
 
 const Register = () => {
     const history = useHistory()
@@ -25,11 +27,6 @@ const Register = () => {
 
     }
 
-    const navigateToLogin = (e) => {
-        e.preventDefault()
-
-        history.push('/login')
-    }
     return (
         <section className={styles['register-box']}>
             <h2>Register</h2>
@@ -52,11 +49,11 @@ const Register = () => {
                 </div>
                 <button type="submit">Submit</button>
                 <div className={styles['sing-in']}>
-                    <p className={styles.acc}>Already have an account?<a onClick={navigateToLogin}>Sing in</a></p>
+                    <p className={styles.acc}>Already have an account?<Link to={'/login'}>Sing in</Link></p>
                 </div>
             </form>
         </section>
     );
 }
 
-export default Register;
+export default isntGuest(Register);

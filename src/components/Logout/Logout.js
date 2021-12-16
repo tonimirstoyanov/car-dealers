@@ -17,6 +17,6 @@ export const Logout = () => {
             .catch(error => {
                 console.log(error)
             })
-    }, [history, logout, user.accessToken])
+    }, [])
     return null
 }

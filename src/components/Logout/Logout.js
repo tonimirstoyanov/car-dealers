@@ -11,7 +11,7 @@ export const Logout = () => {
         authService.logout(user.accessToken)
             .then(res => {
                 logout(res)
-
+                localStorage.clear();
                 history.push('/')
             })
             .catch(error => {

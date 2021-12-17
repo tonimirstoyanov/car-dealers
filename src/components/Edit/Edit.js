@@ -49,6 +49,9 @@ const Edit = ({ match }) => {
             .then(result => {
                 setCar(result)
             })
+            .catch(err => {
+                console.log(err)
+            })
     }, [carId])
 
     const carEditSumbitHandler = (e) => {
@@ -65,6 +68,9 @@ const Edit = ({ match }) => {
                 setIsLoading(false)
                 setCar(res)
                 history.push(`/car/${carId}/details`)
+            })
+            .catch(err => {
+                console.log(err)
             })
 
     }

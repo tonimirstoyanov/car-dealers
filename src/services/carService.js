@@ -1,15 +1,20 @@
-export const getAll = () => {
-    return fetch('http://localhost:3030/car/catalog')
-        .then(respone => respone.json())
+import { response } from "./response.js"
+
+export const getAll = async () => {
+    let result = await fetch('http://localhost:3030/car/catalog')
+    return response(result)
+
 }
-export const lastAdded = () => {
-    return fetch('http://localhost:3030')
-        .then(response => response.json())
+export const lastAdded = async () => {
+    let result = await fetch('http://localhost:3030')
+    return response(result)
+
 }
 
-export const getOne = (id) => {
-    return fetch(`http://localhost:3030/car/${id}/details`)
-        .then(response => response.json())
+export const getOne = async (id) => {
+    let result = await fetch(`http://localhost:3030/car/${id}/details`)
+    return response(result)
+
 }
 
 export const create = async (data, token) => {
@@ -21,13 +26,8 @@ export const create = async (data, token) => {
         },
         body: JSON.stringify(data)
     })
-    let jsonResult = await result.json();
+    return response(result)
 
-    if (result.ok) {
-        return jsonResult
-    } else {
-        throw jsonResult.message
-    }
 }
 
 
@@ -38,13 +38,8 @@ export const deleteOne = async (carId, token) => {
             'auth_token': token
         }
     })
-    let jsonResult = await result.json();
+    return response(result)
 
-    if (result.ok) {
-        return jsonResult
-    } else {
-        throw jsonResult.message
-    }
 }
 
 export const updateOne = async (carId, data, token) => {
@@ -56,13 +51,8 @@ export const updateOne = async (carId, data, token) => {
         },
         body: JSON.stringify(data)
     })
-    let jsonResult = await result.json();
-    console.log(jsonResult)
-    if (result.ok) {
-        return jsonResult
-    } else {
-        throw jsonResult.message
-    }
+    return response(result)
+
 }
 
 export const like = async (carId, data, token) => {
@@ -74,12 +64,8 @@ export const like = async (carId, data, token) => {
         },
         body: JSON.stringify(data)
     })
-    let jsonResult = await result.json();
-    if (result.ok) {
-        return jsonResult
-    } else {
-        throw jsonResult.message
-    }
+    return response(result)
+
 }
 export const dislike = async (carId, data, token) => {
     let result = await fetch(`http://localhost:3030/car/${carId}/dislikes`, {
@@ -90,10 +76,6 @@ export const dislike = async (carId, data, token) => {
         },
         body: JSON.stringify(data)
     })
-    let jsonResult = await result.json();
-    if (result.ok) {
-        return jsonResult
-    } else {
-        throw jsonResult.message
-    }
+    return response(result)
+
 }

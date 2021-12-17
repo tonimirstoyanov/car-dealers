@@ -15,15 +15,18 @@ const Catalog = () => {
             .then(cars => {
                 setCars(cars)
             })
+            .catch(err => {
+                console.log(err)
+            })
     }, [])
 
     useEffect(() => {
         setFilteredCars(
-          cars.filter((car) =>
-            car.brand.toLowerCase().includes(search.toLowerCase())
-          )
+            cars.filter((car) =>
+                car.brand.toLowerCase().includes(search.toLowerCase())
+            )
         );
-      }, [search, cars]);
+    }, [search, cars]);
 
     return (
         <>

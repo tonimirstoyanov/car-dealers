@@ -24,6 +24,9 @@ const Details = ({ match }) => {
                 setCar(result)
                 setIsOwner(Boolean(result.creator === user.userId))
             })
+            .catch(err => {
+                console.log(err)
+            })
     }, [])
 
     const deleteHandler = (e) => {
@@ -34,6 +37,9 @@ const Details = ({ match }) => {
                 console.log(res)
 
                 history.push('/')
+            })
+            .catch(err => {
+                console.log(err)
             })
             .finally(
                 setIsOpen(false)
@@ -58,7 +64,10 @@ const Details = ({ match }) => {
                 // state => ...setState and spinner logic
                 console.log(car)
                 setCar(car => ({ ...car, likes: res.likes, votesOnAd: res.votesOnAd }))
-            });
+            })
+            .catch(err => {
+                console.log(err)
+            })
     };
 
     const dislikeButtonClick = (e) => {
@@ -79,7 +88,10 @@ const Details = ({ match }) => {
                 // spinner logic
                 // console.log(car)
                 setCar(car => ({ ...car, dislikes: res.dislikes, votesOnAd: res.votesOnAd }))
-            });
+            })
+            .catch(err => {
+                console.log(err)
+            })
     }
 
     const ownerButtons = (

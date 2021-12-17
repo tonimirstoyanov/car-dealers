@@ -1,12 +1,14 @@
-export const register = (fullName, email, password, repeatPassword) => {
-    return fetch('http://localhost:3030/user/register', {
+import { response } from './response.js'
+
+export const register = async (fullName, email, password, repeatPassword) => {
+    let result = await fetch('http://localhost:3030/user/register', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({ fullName, email, password, repeatPassword })
     })
-        .then(res => res.json())
+    return response(result)
 
 }
 
@@ -18,13 +20,7 @@ export const login = async (email, password) => {
         },
         body: JSON.stringify({ email, password })
     })
-    let jsonResult = await result.json();
-
-    if (result.ok) {
-        return jsonResult
-    } else {
-        throw jsonResult.message
-    }
+    return response(result)
 }
 
 export const logout = async (token) => {
@@ -33,12 +29,6 @@ export const logout = async (token) => {
             'auth_token': token
         }
     })
-    let jsonResult = await result.json();
-
-    if (result.ok) {
-        return jsonResult
-    } else {
-        throw jsonResult.message
-    }
+    return response(result)
 
 }

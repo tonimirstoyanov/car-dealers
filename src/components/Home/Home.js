@@ -14,6 +14,9 @@ const Home = () => {
             .then(car => {
                 setCars(car)
             })
+            .catch(err =>{
+                console.log(err)
+            })
     }, [])
 
     return (

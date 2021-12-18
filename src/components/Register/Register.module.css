@@ -68,3 +68,9 @@
 .sing-in a{
     color:rgba(0, 136,169, 1);
 }
+.errors {
+	color: red;
+	display: inline;
+	position: relative;
+	top: -20px
+}

@@ -147,3 +147,10 @@
     background: rgba(0, 0, 0, 0.8);
     box-shadow: 0 15px 25px rgb(0 0 0 / 50%);
 }
+
+.errors {
+	color: red;
+	display: inline;
+	position: relative;
+	top: -20px
+}

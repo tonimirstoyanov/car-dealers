@@ -14,7 +14,7 @@ const Home = () => {
             .then(car => {
                 setCars(car)
             })
-            .catch(err =>{
+            .catch(err => {
                 console.log(err)
             })
     }, [])
@@ -31,7 +31,10 @@ const Home = () => {
 
                     <div className={styles['last-offers']}>Last added offers</div>
 
-                    {cars.map(x => <HomeCard key={x._id} car={x} />)}
+                    {cars.length > 0
+                        ? cars.map(x => <HomeCard key={x._id} car={x} />)
+                        : <h2 className={styles['no-cars']}>No cars yet</h2>
+                    }
 
                 </div>
 

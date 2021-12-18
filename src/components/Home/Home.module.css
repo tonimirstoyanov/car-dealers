@@ -135,3 +135,10 @@ h1 {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.no-cars {
+  color: #fff;
+  text-align: center;
+  position: relative;
+  top: 400px;
+}

@@ -6,33 +6,34 @@ import { useHistory } from 'react-router'
 import * as carService from '../../services/carService.js'
 import { AuthContext } from '../../context/authContext.js'
 import Spinner from '../Common/Spinner/Spinner.js'
-import { isAuthenticated } from '../../hoc/isAuth.js'
-import { isOwner } from '../../hoc/isOwner.js'
 
 
 const categories = [
-    { value: 'cabriolet', text: 'Cabriolet' },
-    { value: 'small-car', text: 'Small Car' },
-    { value: 'suv/off-road', text: 'SUV/Off-road' },
-    { value: 'estate', text: 'Estate Car' },
-    { value: 'saloon', text: 'Saloon' },
-    { value: 'sports car/coupe', text: 'Sports Car/Couper' },
-    { value: 'van', text: 'Van' },
+    { value: 'Choose category', text: 'Choose category...' },
+    { value: 'Cabriolet', text: 'Cabriolet' },
+    { value: 'Small Car', text: 'Small Car' },
+    { value: 'SUV/Off-road', text: 'SUV/Off-road' },
+    { value: 'Estate Car', text: 'Estate Car' },
+    { value: 'Saloon', text: 'Saloon' },
+    { value: 'Sports Car/Coupe', text: 'Sports Car/Coupe' },
+    { value: 'Van', text: 'Van' },
 ]
 
 const fuels = [
-    { value: 'petrol', text: 'Petrol' },
-    { value: 'diesel', text: 'Diesel' },
-    { value: 'electric', text: 'Electric' },
-    { value: 'lpg', text: 'LPG' },
-    { value: 'hybrid', text: 'Hybrid' },
-    { value: 'hydrogen', text: 'Hydrogen' },
+    { value: 'Choose fuel', text: 'Choose fuel...' },
+    { value: 'Petrol', text: 'Petrol' },
+    { value: 'Diesel', text: 'Diesel' },
+    { value: 'Electric', text: 'Electric' },
+    { value: 'LPG', text: 'LPG' },
+    { value: 'Hybrid', text: 'Hybrid' },
+    { value: 'Hydrogen', text: 'Hydrogen' },
 ]
 
 const gearboxes = [
-    { value: 'manual', text: 'Manual' },
-    { value: 'semi-automatic', text: 'Semi-automatic' },
-    { value: 'automatic', text: 'Automatic' },
+    { value: 'Choose gearbox', text: 'Choose gearbox...' },
+    { value: 'Manual', text: 'Manual' },
+    { value: 'Semi-automatic', text: 'Semi-automatic' },
+    { value: 'Automatic', text: 'Automatic' },
 ]
 
 const Edit = ({ match }) => {
@@ -47,6 +48,7 @@ const Edit = ({ match }) => {
     useEffect(() => {
         carService.getOne(carId)
             .then(result => {
+                console.log(result)
                 setCar(result)
             })
             .catch(err => {
@@ -64,7 +66,6 @@ const Edit = ({ match }) => {
 
         carService.updateOne(carId, carData, user.accessToken)
             .then(res => {
-                console.log(res)
                 setIsLoading(false)
                 setCar(res)
                 history.push(`/car/${carId}/details`)
@@ -150,4 +151,4 @@ const Edit = ({ match }) => {
     );
 }
 
-export default isOwner(isAuthenticated(Edit));
+export default Edit;

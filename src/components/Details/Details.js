@@ -97,7 +97,7 @@ const Details = ({ match }) => {
     const ownerButtons = (
         <>
             <Link to={`/car/${car._id}/edit`} className={styles['edit-btn']}><button>Edit</button></Link>
-            <Link to={`/car/${car._id}/delete`} className={styles['del-btn']} onClick={() => setIsOpen(true)}><button>Delete</button></Link>
+            <button className={styles['del-btn']} onClick={() => setIsOpen(true)}>Delete</button>
         </>
     );
 

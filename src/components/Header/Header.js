@@ -18,6 +18,7 @@ const Header = () => {
     let userNavigation = (
         <>
             <li><Link to="/car/create">Create ad</Link></li>
+            <li><Link to={`/user/${user.userId}/car`}>My added cars</Link></li>
             <span className="fullName">Welcome, {user.fullName}</span>
             <Link className="button-logout" to="/logout"><button>Logout</button></Link>
         </>

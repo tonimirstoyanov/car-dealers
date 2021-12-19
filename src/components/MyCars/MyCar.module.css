@@ -1,0 +1,84 @@
+.main-card {
+    margin: 2%;
+    text-align: center;
+}
+
+.textAd {
+    position: relative;
+
+    text-align: center;
+    top: 150px;
+    font-family: sans-serif;
+    font-size: 35px;
+    color: #fff;
+}
+
+.card {
+    width: 22%;
+    display: inline-block;
+    box-shadow: 2px 2px 20px black;
+    box-sizing: border-box;
+    border-radius: 15px;
+    margin: 2%;
+    background-color: #ffff;
+    position: relative;
+    top: 150px;
+    background: rgba(255, 254, 254, 0.8);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .5);
+    border-radius: 10px;
+    padding-bottom: 10px;
+    bottom: 10px;
+}
+
+.image img {
+    width: 100%;
+    box-sizing: border-box;
+    height: 250px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.title {
+
+    text-align: center;
+    padding: 5px;
+
+}
+
+h1 {
+    font-size: 25px;
+}
+
+.des p {
+    padding: 10px;
+    font-size: 16px;
+}
+
+.price {
+    position: relative;
+    top: 40px;
+    left: -150px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 0.2rem 0.8rem;
+    border-radius: 2rem;
+    display: inline-block;
+    margin-right: 0.5rem;
+    font-size: 15px;
+}
+
+
+
+.home-photo {
+    position: relative;
+    height: 50%;
+    width: 50%;
+}
+
+
+.no-cars {
+    color: #fff;
+    text-align: center;
+    position: relative;
+    top: 400px;
+}

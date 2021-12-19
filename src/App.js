@@ -10,10 +10,10 @@ import Edit from './components/Edit/Edit.js';
 import Create from './components/Create/Create.js';
 import Details from './components/Details/Details.js';
 import PageNotFound from './components/PageNotFound/PageNotFound.js';
+import MyCars from './components/MyCars/MyCar.js';
 import { Logout } from './components/Logout/Logout.js';
 import { AuthProvider } from './context/authContext.js';
 import { NotificationProvider } from './context/notificationContext.js'
-
 function App() {
 
 
@@ -32,6 +32,7 @@ function App() {
                         <Route path="/logout" component={Logout} />
                         <Route path="/car/:carId/details" component={Details} />
                         <Route path="/car/:carId/edit" component={Edit} />
+                        <Route path="/user/:userId/car" component={MyCars} />
                         <Route path="*" component={PageNotFound} />
                     </Switch>
                 </div>

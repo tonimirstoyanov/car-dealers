@@ -79,3 +79,12 @@ export const dislike = async (carId, data, token) => {
     return response(result)
 
 }
+export const getMyCars = async (userId, token) => {
+    let result = await fetch(`http://localhost:3030/user/${userId}/myCars`, {
+        headers: {
+            'auth_token': token
+        },
+    })
+    return response(result)
+
+}

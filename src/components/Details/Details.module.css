@@ -7,7 +7,7 @@
     left: 50%;
     transform: translateX(-50%);
     width: 1500px;
-    height: 1320px;
+    height: 1100px;
     background: rgba(197, 189, 189, 0.8);
     box-shadow: 0 15px 25px rgba(0, 0, 0, .5);
     border-radius: 10px;
@@ -85,9 +85,10 @@
 
 .info img {
     display: block;
-    width: 35%;
+    width: 520px;
+    height: 325px;
     position: fixed;
-    bottom: 860px;
+    bottom: 680px;
     left: 740px;
     border-radius: 8px;
 }

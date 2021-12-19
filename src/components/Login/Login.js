@@ -7,9 +7,14 @@ import { Link } from 'react-router-dom';
 import * as authService from '../../services/authService.js'
 import { AuthContext } from '../../context/authContext.js'
 import { isntGuest } from '../../hoc/isntGuest.js';
+import { NotificationContext } from '../../context/notificationContext.js';
+
+
+
 const Login = () => {
 
     const { login } = useContext(AuthContext)
+    const { successAlert } = useContext(NotificationContext)
     let history = useHistory()
     const loginSubmitHandler = (e) => {
 
@@ -22,7 +27,7 @@ const Login = () => {
         authService.login(email, password)
             .then(result => {
                 login(result)
-
+                successAlert('Successful login')
                 history.push('/')
             })
             .catch(err => {
@@ -31,23 +36,25 @@ const Login = () => {
     }
 
     return (
-        <section className={styles['login-box']}>
-            <form id="login" method="POST" onSubmit={loginSubmitHandler}>
-                <h2>Login</h2>
-                <div className={styles['login-field']}>
-                    <input type="email" id="email" name="email" />
-                    <label>Email</label>
-                </div>
-                <div className={styles['login-field']}>
-                    <input type="password" id="login-password" name="password" />
-                    <label>Password</label>
-                </div>
-                <button type="submit">Submit</button>
-                <div className={styles['sing-in']}>
-                    <p className={styles.acc}>Don't have an account? <Link to={'/register'}>Sing up</Link></p>
-                </div>
-            </form>
-        </section>
+        <>
+            <section className={styles['login-box']}>
+                <form id="login" method="POST" onSubmit={loginSubmitHandler}>
+                    <h2>Login</h2>
+                    <div className={styles['login-field']}>
+                        <input type="email" id="email" name="email" />
+                        <label>Email</label>
+                    </div>
+                    <div className={styles['login-field']}>
+                        <input type="password" id="login-password" name="password" />
+                        <label>Password</label>
+                    </div>
+                    <button type="submit">Submit</button>
+                    <div className={styles['sing-in']}>
+                        <p className={styles.acc}>Don't have an account? <Link to={'/register'}>Sing up</Link></p>
+                    </div>
+                </form>
+            </section>
+        </>
     )
 }
 export default isntGuest(Login);

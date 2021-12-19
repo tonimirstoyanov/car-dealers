@@ -1,26 +1,29 @@
-.edit-box{
+.edit-box {
 	position: absolute;
-	top: 71%;
+	top: 660px;
 	left: 50%;
-	transform: translate(-50%,-50%);
+	transform: translate(-50%, -50%);
 	width: 500px;
-	padding:40px;
-	background: rgba(0,0,0,.8);
+	padding: 40px;
+	background: rgba(0, 0, 0, .8);
 	box-sizing: border-box;
-	box-shadow: 0 15px  25px rgba(0,0,0,.5);
+	box-shadow: 0 15px 25px rgba(0, 0, 0, .5);
 	border-radius: 10px;
-    
+
 }
-.edit-box h2{
+
+.edit-box h2 {
 	margin: 0 0 30px;
 	padding: 0;
 	text-align: center;
 	color: #fff;
 }
-.edit-box .edit-field{
+
+.edit-box .edit-field {
 	position: relative;
 }
-.edit-box .edit-field  input{
+
+.edit-box .edit-field input {
 	width: 100%;
 	padding: 10px 0;
 	font-size: 16px;
@@ -31,7 +34,8 @@
 	outline: none;
 	background: transparent;
 }
-.edit-box .edit-field  label{
+
+.edit-box .edit-field label {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -42,38 +46,42 @@
 	pointer-events: none;
 	transition: .5s;
 }
-.edit-box .edit-field input:focus ~ label,
-.edit-box .edit-field input:valid ~ label{
+
+.edit-box .edit-field input:focus~label,
+.edit-box .edit-field input:valid~label {
 	top: -23px;
 	left: 0;
 	color: #ffff;
 	font-size: 13px;
 }
-.edit-box button{
+
+.edit-box button {
 	background: transparent;
 	border: none;
 	outline: none;
 	color: #fff;
-	background: rgba(0, 136,169, 1);
+	background: rgba(0, 136, 169, 1);
 	padding: 10px 20px;
 	cursor: pointer;
 	border-radius: 50px;
 	position: relative;
-    left: 40%;
-    
+	left: 40%;
+
 }
-.sing-in p{
-    color: #fff;
-    text-align: right;
-    padding: 0;
-    
+
+.sing-in p {
+	color: #fff;
+	text-align: right;
+	padding: 0;
+
 }
-.sing-in a{
-    color:#03a9f4;
+
+.sing-in a {
+	color: #03a9f4;
 }
 
 
-.edit-box .edit-field select{
+.edit-box .edit-field select {
 	width: 100%;
 	padding: 10px 0;
 	font-size: 16px;
@@ -85,63 +93,67 @@
 	background: transparent;
 }
 
-.edit-box .edit-field .category-label
-{
+.edit-box .edit-field .category-label {
 	top: -23px;
 	left: 0;
 	color: #ffff;
 	font-size: 13px;
 
 }
-.edit-box .edit-field .category
-{
+
+.edit-box .edit-field .category option{
 	left: 0;
 	color: #ffff;
 	font-size: 16px;
-	background: rgba(0,0,0,0.8);
-    box-shadow: 0 15px 25px rgb(0 0 0 / 50%);
+	background: rgba(0, 0, 0, 0.8);
+	box-shadow: 0 15px 25px rgb(0 0 0 / 50%);
 }
 
 
 /*  */
 
-.edit-box .edit-field .fuel-label
-{
+.edit-box .edit-field .fuel-label {
 	top: -23px;
 	left: 0;
 	color: #ffff;
 	font-size: 13px;
 
 }
-.edit-box .edit-field .fuel option
-{
+
+.edit-box .edit-field .fuel option {
 	left: 0;
 	color: #ffff;
 	font-size: 16px;
-	background: rgba(0,0,0,0.8);
-    box-shadow: 0 15px 25px rgb(0 0 0 / 50%);
+	background: rgba(0, 0, 0, 0.8);
+	box-shadow: 0 15px 25px rgb(0 0 0 / 50%);
 }
 
 
 
-.edit-box .edit-field .gearbox-label
-{
+.edit-box .edit-field .gearbox-label {
 	top: -23px;
 	left: 0;
 	color: #ffff;
 	font-size: 13px;
 
 }
-.edit-box .edit-field .gearbox option
-{
+
+.edit-box .edit-field .gearbox option {
 	left: 0;
 	color: #ffff;
 	font-size: 16px;
-	background: rgba(0,0,0,0.8);
-    box-shadow: 0 15px 25px rgb(0 0 0 / 50%);
+	background: rgba(0, 0, 0, 0.8);
+	box-shadow: 0 15px 25px rgb(0 0 0 / 50%);
 }
 
-.loading{
+.loading {
 	color: red;
 	font-size: 40px;
+}
+
+.errors {
+	color: red;
+	display: inline;
+	position: relative;
+	top: -20px
 }

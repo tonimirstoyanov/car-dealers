@@ -7,12 +7,14 @@ import styles from './Details.module.css';
 import * as carService from '../../services/carService.js'
 import { AuthContext } from '../../context/authContext.js';
 import ConfirmDialog from '../Common/ConfirmDialog/ConfirmDialog.js';
+import { NotificationContext } from '../../context/notificationContext.js';
 
 const Details = ({ match }) => {
 
     let carId = match.params.carId;
-
     let history = useHistory()
+    const { successAlert } = useContext(NotificationContext)
+
     const [car, setCar] = useState({})
     const [isOpen, setIsOpen] = useState(false)
     let { user, setIsOwner } = useContext(AuthContext)
@@ -35,7 +37,7 @@ const Details = ({ match }) => {
         carService.deleteOne(carId, user.accessToken)
             .then(res => {
                 console.log(res)
-
+                successAlert('Successfully deleted')
                 history.push('/')
             })
             .catch(err => {
@@ -48,21 +50,17 @@ const Details = ({ match }) => {
 
     const likeButtonClick = (e) => {
         e.preventDefault()
-        if (user.userId == car.creator) {
-            console.log('as')
+        if (user.userId === car.creator) {
             return;
         }
 
         if (car.votesOnAd.includes(user.userId)) {
-            console.log('here')
             return;
         }
 
         carService.like(carId, user, user.accessToken)
             .then((res) => {
-                console.log(res)
                 // state => ...setState and spinner logic
-                console.log(car)
                 setCar(car => ({ ...car, likes: res.likes, votesOnAd: res.votesOnAd }))
             })
             .catch(err => {
@@ -72,7 +70,7 @@ const Details = ({ match }) => {
 
     const dislikeButtonClick = (e) => {
         e.preventDefault()
-        if (user.userId == car.creator) {
+        if (user.userId === car.creator) {
             console.log('as')
             return;
         }
@@ -84,9 +82,6 @@ const Details = ({ match }) => {
 
         carService.dislike(carId, user, user.accessToken)
             .then((res) => {
-                // console.log(res)
-                // spinner logic
-                // console.log(car)
                 setCar(car => ({ ...car, dislikes: res.dislikes, votesOnAd: res.votesOnAd }))
             })
             .catch(err => {
@@ -143,7 +138,7 @@ const Details = ({ match }) => {
                 </div>
                 <div className={styles['social-btn']}>
 
-                    {user.userId && (user.userId == car.creator
+                    {user.userId && (user.userId === car.creator
                         ? ownerButtons
                         : userButtons)
                     }

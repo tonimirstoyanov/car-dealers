@@ -1,6 +1,6 @@
 import styles from './Create.module.css'
 
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { useHistory } from 'react-router'
 
 import * as carService from '../../services/carService.js'
@@ -21,6 +21,10 @@ const Create = () => {
     }
     const [errorMessage, setErrorMessage] = useState(initialValue)
     const [error, setError] = useState(false)
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
 
     const createSubmitHandler = (e) => {
 

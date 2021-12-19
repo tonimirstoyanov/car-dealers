@@ -48,8 +48,8 @@ const Edit = ({ match }) => {
     const [error, setError] = useState(false)
     let { user } = useContext(AuthContext)
 
-
     useEffect(() => {
+        window.scrollTo(0, 0)
         carService.getOne(carId)
             .then(result => {
                 console.log(result)

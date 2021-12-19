@@ -14,8 +14,9 @@ const CatalogCard = ({car}) => {
                     {car.brand}</h1>
             </div>
             <div className={styles.des}>
-                <p>Year: {car.year}, Fuel: {car.fuel}, Mileage: {car.mileage} km</p>
-                <p>Price: {car.price} </p>
+                <p>Year: {car.year}, Fuel: {car.fuel}</p>
+                <p>Mileage: {car.mileage} km</p>
+                <p>Price: {car.price} BGN</p>
                 <p>City: {car.location}</p>
                 <Link className={styles['button-read-more']} to={`/car/${car._id}/details`}><button>Read More...</button></Link>
             </div>

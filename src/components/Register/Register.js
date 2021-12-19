@@ -65,7 +65,7 @@ const Register = () => {
     }
     const repeatPasswordChangeHandler = (e) => {
         let repeatPassword = e.target.value
-        if (repeatPassword != pass) {
+        if (repeatPassword !== pass) {
             setErrorMessage(state => ({ ...state, repeatPassword: 'Password and repeat rassword must be equal! ' }))
             setError(true)
         } else {

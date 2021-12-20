@@ -38,4 +38,4 @@ function MyCars({ match }) {
     );
 }
 
-export default isOwner(MyCars);
+export default MyCars;

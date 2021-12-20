@@ -4,6 +4,7 @@ import styles from './MyCar.module.css'
 import * as carService from '../../services/carService.js'
 import { AuthContext } from '../../context/authContext.js';
 import MyCarCard from './MyCarCard.js';
+import { isOwner } from '../../hoc/isOwner.js';
 
 function MyCars({ match }) {
 
@@ -37,4 +38,4 @@ function MyCars({ match }) {
     );
 }
 
-export default MyCars;
+export default isOwner(MyCars);

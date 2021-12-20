@@ -7,6 +7,8 @@ import * as carService from '../../services/carService.js'
 import { AuthContext } from '../../context/authContext.js'
 import Spinner from '../Common/Spinner/Spinner.js'
 import * as validation from '../../validation/validation.js'
+import { isOwner } from '../../hoc/isOwner.js'
+import { isAuthenticated } from '../../hoc/isAuth.js'
 import { NotificationContext } from '../../context/notificationContext.js'
 
 const categories = [
@@ -61,17 +63,17 @@ const Edit = ({ match }) => {
     }, [carId])
 
     const carEditSumbitHandler = (e) => {
-        
+
         e.preventDefault()
         let formData = new FormData(e.currentTarget)
         let carData = Object.fromEntries(formData)
-        
+
         console.log(error)
-        
+
         if (!error) {
             setIsLoading(true)
             carService.updateOne(carId, carData, user.accessToken)
-            
+
                 .then(res => {
                     setIsLoading(false)
                     setCar(res)
@@ -244,4 +246,4 @@ const Edit = ({ match }) => {
     );
 }
 
-export default Edit;
+export default isAuthenticated(isOwner(Edit));

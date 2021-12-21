@@ -6,7 +6,7 @@ const path = require('path')
 
 
 
-const { PORT, CONNECTION_URL, NODE_ENV } = require('./constants');
+const { PORT, CONNECTION_URL} = require('./constants');
 const routes = require('./routes');
 
 const app = express();

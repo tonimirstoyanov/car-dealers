@@ -35,18 +35,7 @@ router.get('/:carId/details', async (req, res) => {
 
     try {
         let car = await carService.getUpdatedCar(req.params.carId);
-        // console.log(car)
-        // let carData = await car.toObject();
-
-        // let isOwner = carData.creator == req.user?._id;
-        // let isLogged = req.user == undefined ? false : true;
-        // let votedPeople = car.getVotedPeople()
-
-        // console.log(voters)
-        // let isVoted = car.votesOnAd.some(x => x._id == req.user?._id)
-
-        // res.json({ carData, isOwner, isLogged, isVoted, votedPeople })
-        // console.log(car)
+        
         res.json(car)
     } catch (error) {
         res.json({ message: error.message })
@@ -88,13 +77,10 @@ router.post('/:carId/likes', async (req, res) => {
 
 
         let carInfo = await carService.likes(req.params.carId, req.body.userId)
-        // let isVoted = car.votesOnAd.some(x => x._id == req.body.userId)
 
         let car = await carService.getUpdatedCar(req.params.carId);
 
-        // console.log(isVoted)
-        // console.log(carData)
-        console.log(car)
+      
         res.status(200).json(car)
     } catch (err) {
         console.log(err)
@@ -110,9 +96,6 @@ router.post('/:carId/dislikes', async (req, res) => {
 
         let car = await carService.getUpdatedCar(req.params.carId);
 
-        // console.log(isVoted)
-        // console.log(carData)
-        console.log(car)
         res.status(200).json(car)
     } catch (err) {
         console.log(err)

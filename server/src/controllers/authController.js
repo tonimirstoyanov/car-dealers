@@ -75,11 +75,9 @@ router.get('/logout', auth, (req, res) => {
 
 router.get('/:userId/myCars', async (req, res) => {
 
-    console.log(req.params.userId)
 
     try {
         let data = await carService.myCars(req.params.userId)
-        console.log(data)
         res.status(200).json(data)
     } catch (error) {
         res.status(404).json({ message: "Something went wrong" })

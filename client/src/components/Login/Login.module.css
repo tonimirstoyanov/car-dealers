@@ -39,15 +39,16 @@
 
 .login-box .login-field label {
     position: absolute;
-    top: 0;
-    left: 0;
     letter-spacing: 1px;
     padding: 10px 0;
-    font-size: 16px;
-    color: #fff;
     pointer-events: none;
     transition: .5s;
+    top: -23px;
+    left: 0;
+    color: #fff;
+    font-size: 12px;
 }
+
 
 .login-box .login-field input:focus~label,
 .login-box .login-field input:valid~label {

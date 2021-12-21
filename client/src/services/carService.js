@@ -1,24 +1,26 @@
 import { response } from "./response.js"
 
+const baseUrl = 'https://car-dealers-react-project.herokuapp.com'
+
 export const getAll = async () => {
-    let result = await fetch('http://localhost:3030/car/catalog')
+    let result = await fetch(`${baseUrl}/car/catalog`)
     return response(result)
 
 }
 export const lastAdded = async () => {
-    let result = await fetch('http://localhost:3030')
+    let result = await fetch(`${baseUrl}`)
     return response(result)
 
 }
 
 export const getOne = async (id) => {
-    let result = await fetch(`http://localhost:3030/car/${id}/details`)
+    let result = await fetch(`${baseUrl}/car/${id}/details`)
     return response(result)
 
 }
 
 export const create = async (data, token) => {
-    let result = await fetch('http://localhost:3030/car/create', {
+    let result = await fetch(`${baseUrl}/car/create`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -32,7 +34,7 @@ export const create = async (data, token) => {
 
 
 export const deleteOne = async (carId, token) => {
-    let result = await fetch(`http://localhost:3030/car/${carId}/delete`, {
+    let result = await fetch(`${baseUrl}/car/${carId}/delete`, {
         method: 'DELETE',
         headers: {
             'auth_token': token
@@ -43,7 +45,7 @@ export const deleteOne = async (carId, token) => {
 }
 
 export const updateOne = async (carId, data, token) => {
-    let result = await fetch(`http://localhost:3030/car/${carId}/edit`, {
+    let result = await fetch(`${baseUrl}/car/${carId}/edit`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
@@ -56,7 +58,7 @@ export const updateOne = async (carId, data, token) => {
 }
 
 export const like = async (carId, data, token) => {
-    let result = await fetch(`http://localhost:3030/car/${carId}/likes`, {
+    let result = await fetch(`${baseUrl}/car/${carId}/likes`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -68,7 +70,7 @@ export const like = async (carId, data, token) => {
 
 }
 export const dislike = async (carId, data, token) => {
-    let result = await fetch(`http://localhost:3030/car/${carId}/dislikes`, {
+    let result = await fetch(`${baseUrl}/car/${carId}/dislikes`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -80,7 +82,7 @@ export const dislike = async (carId, data, token) => {
 
 }
 export const getMyCars = async (userId, token) => {
-    let result = await fetch(`http://localhost:3030/user/${userId}/myCars`, {
+    let result = await fetch(`${baseUrl}/user/${userId}/myCars`, {
         headers: {
             'auth_token': token
         },

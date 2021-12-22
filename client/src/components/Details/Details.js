@@ -36,7 +36,6 @@ const Details = ({ match }) => {
 
         carService.deleteOne(carId, user.accessToken)
             .then(res => {
-                console.log(res)
                 successAlert('Successfully deleted')
                 history.push('/')
             })
@@ -71,12 +70,10 @@ const Details = ({ match }) => {
     const dislikeButtonClick = (e) => {
         e.preventDefault()
         if (user.userId === car.creator) {
-            console.log('as')
             return;
         }
 
         if (car.votesOnAd.includes(user.userId)) {
-            console.log('here')
             return;
         }
 

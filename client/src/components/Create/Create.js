@@ -41,7 +41,6 @@ const Create = () => {
         if (!error) {
             carService.create(data, user.accessToken)
                 .then(result => {
-                    console.log(result)
                     successAlert('Successfully created')
                     history.push('/car/catalog')
                 })

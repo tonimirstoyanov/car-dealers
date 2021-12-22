@@ -21,7 +21,7 @@ function MyCars({ match }) {
             .catch(err => {
                 console.log(err)
             })
-    }, []);
+    }, [userId, user.accessToken]);
 
     return (
         <section className={styles['my-listings-section']}>

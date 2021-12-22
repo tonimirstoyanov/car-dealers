@@ -14,7 +14,7 @@ const HomeCard = ({car}) => {
                     {car.brand}</h1>
             </div>
             <div className={styles.des}>
-                <p>Year:{car.year}, Price: {car.price} BGN</p>
+                <p>Year: {car.year}, Price: {car.price} BGN</p>
                 <Link className={styles['button-read-more']} to={`/car/${car._id}/details`}><button>Read More...</button></Link>
             </div>
         </div>

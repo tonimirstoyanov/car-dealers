@@ -54,7 +54,6 @@ const Edit = ({ match }) => {
         window.scrollTo(0, 0)
         carService.getOne(carId)
             .then(result => {
-                console.log(result)
                 setCar(result)
             })
             .catch(err => {
@@ -67,8 +66,6 @@ const Edit = ({ match }) => {
         e.preventDefault()
         let formData = new FormData(e.currentTarget)
         let carData = Object.fromEntries(formData)
-
-        console.log(error)
 
         if (!error) {
             setIsLoading(true)

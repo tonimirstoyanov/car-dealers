@@ -24,7 +24,6 @@ const Register = () => {
         if (!error) {
             authService.register(fullName, email, password, repeatPassword)
                 .then(result => {
-                    console.log(result)
                     successAlert('Successful registration')
                     history.push('/login')
                 })

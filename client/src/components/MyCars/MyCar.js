@@ -9,7 +9,6 @@ import { isAuthenticated } from '../../hoc/isAuth.js';
 function MyCars({ match }) {
 
     let userId = match.params.userId;
-    console.log(userId)
     const { user } = useContext(AuthContext)
 
     let [cars, myCars] = useState([]);

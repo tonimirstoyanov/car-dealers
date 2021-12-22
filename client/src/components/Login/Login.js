@@ -14,7 +14,7 @@ import { NotificationContext } from '../../context/notificationContext.js';
 const Login = () => {
 
     const { login } = useContext(AuthContext)
-    const { successAlert } = useContext(NotificationContext)
+    const { successAlert, errorAlert } = useContext(NotificationContext)
     let history = useHistory()
     const loginSubmitHandler = (e) => {
 
@@ -32,6 +32,7 @@ const Login = () => {
             })
             .catch(err => {
                 console.log(err)
+                errorAlert(err.message)
             })
     }
 

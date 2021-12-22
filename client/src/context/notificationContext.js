@@ -19,9 +19,20 @@ export const NotificationProvider = ({ children }) => {
             progress: undefined,
         });
     }
+    const errorAlert = (data) => {
+        toast.error(`${data}`, {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+    }
 
     return (
-        <NotificationContext.Provider value={{ successAlert }}>
+        <NotificationContext.Provider value={{ successAlert, errorAlert }}>
             <ToastContainer />
             {children}
         </NotificationContext.Provider>

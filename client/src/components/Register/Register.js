@@ -3,10 +3,12 @@ import * as authService from '../../services/authService.js'
 import { useHistory } from 'react-router'
 import { Link } from 'react-router-dom'
 import { isGuest } from '../../hoc/isGuest.js'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
+import { NotificationContext } from '../../context/notificationContext.js'
 
 const Register = () => {
     const history = useHistory()
+    const { successAlert, errorAlert } = useContext(NotificationContext)
 
     const initialValue = { fullName: '', email: '', password: '', repeatPassword: '' }
     const [errorMessage, setErrorMessage] = useState(initialValue)
@@ -23,11 +25,12 @@ const Register = () => {
             authService.register(fullName, email, password, repeatPassword)
                 .then(result => {
                     console.log(result)
-
+                    successAlert('Successful registration')
                     history.push('/login')
                 })
                 .catch(err => {
                     console.log(err)
+                    errorAlert(err.message)
                 })
         }
     }
